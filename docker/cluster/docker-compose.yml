@@ -1,0 +1,26 @@
+version: '2'
+services:
+  app1:
+    container_name: App1
+    image: appprod
+    ports: 
+    - "5000"
+  app2:
+    container_name: App2
+    image: appprod
+    ports: 
+    - "5000"
+  app3:
+    container_name: App3
+    image: appprod
+    ports: 
+    - "5000"
+  lb:
+    container_name: LB
+    image: lb-ng
+    ports: 
+    - "5000:80"
+    links:
+    - "app1"
+    - "app2"
+    - "app3"
